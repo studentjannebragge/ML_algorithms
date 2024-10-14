@@ -1,4 +1,4 @@
-Päätöspuut ovat erinomainen lähtökohta koneoppimisen opiskeluun, koska ne ovat intuitiivisia ja visuaalisesti helposti ymmärrettäviä. Tässä muutamia perusasioita, joita voit käsitellä nuoremmalle data-analyytikolle päätöspuista:
+Päätöspuut ovat intuitiivisia ja visuaalisesti helposti ymmärrettäviä.
 
 ### Päätöspuun Perusidea
 - **Määritelmä**: Päätöspuu on algoritmi, jota käytetään luokitukseen ja regressioon. Se jakaa datan yhä pienempiin alaryhmiin, kunnes jokainen ryhmä on mahdollisimman homogeeninen.
@@ -53,17 +53,14 @@ Tässä esimerkissä käytetään Iris-datasarjaa, jonka avulla voidaan helposti
 - **Mitkä ovat Gini-indeksin ja entropian erot, ja milloin niitä kannattaa käyttää?**
 
 
-Voit aloittaa näillä perusasioilla ja näyttää käytännön esimerkin Python-koodista. Haluatko, että laadin lisää esimerkkejä tai kysymyksiä opiskeluun liittyen?
-
-
 Gini-indeksi ja entropia ovat kaksi suosittua mittaria, joita käytetään päätöspuissa jakamiskriteereinä solmun epäpuhtauden mittaamiseen. Niiden avulla päätöspuu määrittää, mikä ominaisuus valitaan jakamiseen kullakin solmun tasolla. Tässä yksityiskohtia kummastakin ja vertailu niiden käytöstä:
 
 ### Gini-indeksi
 - **Määritelmä**: Gini-indeksi mittaa solmun epäpuhtautta. Sen arvo vaihtelee välillä 0–1, jossa 0 tarkoittaa täysin homogeenista ryhmää (kaikki kuuluvat samaan luokkaan) ja arvo lähellä 1 viittaa heterogeenisempään ryhmään.
 - **Laskentakaava**: Gini-indeksi lasketaan seuraavasti:
-  \[
+  $$
   Gini = 1 - \sum_{i=1}^{n} p_i^2
-  \]
+  $$
   jossa \( p_i \) on i:nnen luokan todennäköisyys. Mitä pienempi Gini-arvo, sitä homogeenisempi ryhmä.
 
 - **Edut**:
