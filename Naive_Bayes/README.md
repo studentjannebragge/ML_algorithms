@@ -1,20 +1,15 @@
-## Explanation
+Tässä koodissa on useita funktioita, jotka yhdessä toteuttavat Gaussin Naive Bayes -luokittimen. Koodi koostuu muun muassa datan jakamisesta koulutus- ja testijoukkoihin, mallin opettamisesta, sekä mallin avulla tehtävistä ennusteista ja arvioinnista.
 
-### Training the Model
+Ensimmäinen merkittävä funktio on `split_train_test`, joka jakaa datan koulutus- ja testijoukkoihin. Tämä funktio sekoittaa indeksit satunnaisesti ja jakaa datan haluttuun osaan koulutusta ja testiä varten, mahdollistaen mallin oikeanlaisen arvioinnin.
 
-The `train` method calculates the prior probabilities \( P(C) \) for each class and the likelihoods \( P(x \mid C) \) for each feature given a class using Laplace smoothing.
+Seuraavaksi on `GaussianNB`-luokka, joka toteuttaa Gaussin Naive Bayes -mallin. Luokassa on useita metodeja, kuten `fit`, `predict`, `_predict_instance`, ja `_gaussian_probability`. 
 
-### Making Predictions
+- `fit`-metodi kouluttaa mallin. Se laskee kullekin luokalle keskiarvot, varianssit ja ennakkotodennäköisyydet, jotka ovat mallin perusta. Näitä arvoja käytetään luokittelussa.
+  
+- `_gaussian_probability` laskee yksittäisen ominaisuuden todennäköisyyden Gaussin jakauman avulla, mikä on olennainen osa Naive Bayesin laskentaa.
 
-The `predict` method computes the posterior probabilities \( P(C \mid x) \) for each class, and returns the class with the highest posterior for each instance in the test set.
+- `predict`-metodi tekee ennusteita annetuille syötteille. Se hyödyntää `_predict_instance`-metodia, joka laskee jokaiselle luokalle todennäköisyyden (posterioritodennäköisyyden) ja valitsee suurimman todennäköisyyden omaavan luokan.
 
-### Example Dataset
+Lopuksi koodissa on kaksi arviointifunktiota: `accuracy`, joka laskee ennusteen tarkkuuden vertaamalla oikeita ja ennustettuja arvoja, sekä `classification_report`, joka muodostaa luokitteluraportin, sisältäen tietoja kuten tarkkuuden, palautuksen ja F1-pisteet.
 
-The `X_train` matrix contains two features: a binary feature (0/1) and a categorical feature ('S', 'M', 'L').  
-The `y_train` vector contains the class labels ('T' and 'F').  
-When you run this code, it will train the Naive Bayes classifier and make predictions for the test instances in `X_test`.
-
-### Next Steps
-
-You can modify this implementation for different types of data, like continuous features, by adjusting the likelihood calculation.  
-If you'd like to handle text data, you can tokenize the text and convert it into a numerical form (such as a bag-of-words representation).
+Yhdessä nämä funktiot muodostavat kokonaisuuden, joka mahdollistaa datan käsittelyn, mallin opettamisen ja sen arvioimisen.
