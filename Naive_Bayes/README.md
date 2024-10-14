@@ -1,3 +1,5 @@
+*ChatGPT learning*
+
 Tässä koodissa on useita funktioita, jotka yhdessä toteuttavat Gaussin Naive Bayes -luokittimen. Koodi koostuu muun muassa datan jakamisesta koulutus- ja testijoukkoihin, mallin opettamisesta, sekä mallin avulla tehtävistä ennusteista ja arvioinnista.
 
 Ensimmäinen merkittävä funktio on `split_train_test`, joka jakaa datan koulutus- ja testijoukkoihin. Tämä funktio sekoittaa indeksit satunnaisesti ja jakaa datan haluttuun osaan koulutusta ja testiä varten, mahdollistaen mallin oikeanlaisen arvioinnin.

@@ -1,3 +1,5 @@
+*ChatGPT learning*
+
 Tässä Python-koodissa rakennetaan päätöspuu S&P 500 -yhtiöiden historiallisten tuottojen ja markkina-arvojen perusteella. Käydään koodi vaiheittain läpi:
 
 ### 1. S&P 500 -osakkeiden tietojen lataaminen
