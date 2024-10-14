@@ -14,7 +14,7 @@ Lopuksi koodissa on kaksi arviointifunktiota: `accuracy`, joka laskee ennusteen 
 
 Yhdessä nämä funktiot muodostavat kokonaisuuden, joka mahdollistaa datan käsittelyn, mallin opettamisen ja sen arvioimisen.
 
-## testin lopputuloksen avaaminen
+## Koodin antama raportti lyhyesti
 
 Naive Bayes -koodin testituloksia arvioidaan tulostettujen "Tarkkuus" ja "Luokitusraportti" -tietojen perusteella. Tässä on ohje, kuinka voit tulkita näitä tuloksia:
 
