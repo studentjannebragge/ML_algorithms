@@ -2,4 +2,4 @@
 
 Includes
 - Naive Bayes
-
+- decision Tree
