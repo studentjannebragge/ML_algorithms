@@ -1,4 +1,4 @@
-Päätöspuut ovat intuitiivisia ja visuaalisesti helposti ymmärrettäviä.
+
 
 ### Päätöspuun Perusidea
 - **Määritelmä**: Päätöspuu on algoritmi, jota käytetään luokitukseen ja regressioon. Se jakaa datan yhä pienempiin alaryhmiin, kunnes jokainen ryhmä on mahdollisimman homogeeninen.
@@ -152,12 +152,10 @@ print(f"Leikatun puun tarkkuus: {accuracy_score(y_test, y_pred_pruned):.2f}")
 
 Tässä esimerkissä voidaan nähdä, kuinka rajoittamalla päätöspuun syvyyttä voimme parantaa mallin kykyä yleistää testidatan kanssa. Tämä on konkreettinen tapa osoittaa, kuinka leikkaaminen voi parantaa yleistettävyyttä ja estää ylisovittamisen.
 
-# käytännön harjoituksia
-
-Tässä on muutama käytännön harjoitus, joita voit käyttää nuoremman data-analyytikon kanssa, kun harjoittelette päätöspuun leikkaamista ja sen vaikutusta mallin suorituskykyyn:
+# Päätöspuun leikkaaminen ja sen vaikutusta mallin suorituskykyyn:
 
 ### 1. **Kokeile Useita Leikkausmenetelmiä**
-Pyydäta kokeilemaan eri tapoja leikkaamiseen käyttämällä **max_depth**, **min_samples_split**, ja **min_samples_leaf** -parametreja scikit-learnin DecisionTreeClassifier-luokassa. Tarkoituksena on nähdä, miten eri rajoitukset vaikuttavat puun monimutkaisuuteen ja yleistämiskykyyn. Voit tehdä tämän seuraavasti:
+Kokeillaan eri tapoja hyödyntää leikkaamiseen käyttämällä **max_depth**, **min_samples_split**, ja **min_samples_leaf** -parametreja scikit-learnin DecisionTreeClassifier-luokassa. Tarkoituksena on nähdä, miten eri rajoitukset vaikuttavat puun monimutkaisuuteen ja yleistämiskykyyn. Voit tehdä tämän seuraavasti:
 
 ```python
 from sklearn.datasets import load_iris
@@ -186,9 +184,6 @@ Leikkausparametrit {'max_depth': 3} - Tarkkuus: 1.00
 Leikkausparametrit {'min_samples_split': 4} - Tarkkuus: 1.00
 Leikkausparametrit {'min_samples_leaf': 5} - Tarkkuus: 1.00
 
-
-
-Tämän harjoituksen avulla voi kokeilla, miten erilaiset parametrit, kuten **maksimisyvyys** (max_depth), **minimijaon näytemäärä** (min_samples_split), ja **lehtisolmun miniminäytteet** (min_samples_leaf), vaikuttavat puun yksinkertaisuuteen ja sen suorituskykyyn.
 
 ### 2. **Visualisoi Päätöspuun Leikkaaminen**
 Päätöspuun visualisointi ennen ja jälkeen leikkaamisen auttaa nuorta analyytikkoa ymmärtämään, kuinka leikkaaminen vaikuttaa puun rakenteeseen. Voitte käyttää samoja parametreja, mutta visualisoida puun, jotta nähdään ero monimutkaisessa ja yksinkertaisemmassa puussa:
@@ -252,7 +247,7 @@ plt.show()
 ![Puun syvyyden vaikutus](image-2.png)
 
 
-Tässä visualisoidaan koulutus- ja testivirheiden ero eri syvyyksillä. Kun syvyys kasvaa, koulutusvirhe pienenee, mutta testivirhe voi kasvaa ylisovittamisen seurauksena. Tämä auttaata ymmärtämään, miksi yksinkertaisempi malli voi olla parempi yleistämisessä.
+Kun syvyys kasvaa, koulutusvirhe pienenee, mutta testivirhe voi kasvaa ylisovittamisen seurauksena. Tämä auttaata ymmärtämään, miksi yksinkertaisempi malli voi olla parempi yleistämisessä.
 
 ### 4. **K-Fold Cross Validation Leikkaamisen Apuvälineenä**
 Yksi tärkeä menetelmä, jonka voi oppia, on **K-Fold Cross Validation**. Tämän avulla voidaan arvioida eri päätöspuumallien yleistämiskykyä käyttämällä kertaalleen jaettua dataa. Esimerkiksi:
