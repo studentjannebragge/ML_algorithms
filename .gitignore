@@ -1,0 +1,33 @@
+# Python virtual environment
+venv/
+.env/
+mlvenv/
+.env/
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and other output
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# Test results
+.pytest_cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/

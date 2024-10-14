@@ -1,3 +1,5 @@
-# My first GitHub Project
+# Machine learning algorithms
 
-this is my first project
+Includes
+- Naive Bayes
+
