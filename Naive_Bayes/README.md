@@ -40,7 +40,49 @@ Naive Bayes -koodin testituloksia arvioidaan tulostettujen "Tarkkuus" ja "Luokit
      - F1-pisteet ovat hyödyllisiä, kun halutaan tasapaino tarkkuuden ja palautuksen välillä, erityisesti silloin kun datassa on epätasapaino eri luokkien välillä.
 
    - **Luokat**:
-     - Raportissa on listattuna kaikki luokat (esimerkiksi `0`, `1`, `2`), ja näille annetaan tarkkuus, palautus ja F1-pisteet.
+     - Raportissa on listattuna kaikki luokat (esimerkiksi `0: Pieni auto`, `1: Datakoodarin auto`, `2: Ekonomin auto`), ja näille annetaan tarkkuus, palautus ja F1-pisteet.
      - Tämä antaa käsityksen siitä, miten malli suoriutui eri luokkien ennustamisesta. Jos jotkut luokat saavat matalat pisteet, voi olla tarpeen kerätä lisää dataa tai harkita toisenlaista mallia.
 
 Yhteenvetona: Tarkkuus antaa yleiskuvan mallin suorituskyvystä, kun taas luokitusraportti tarjoaa syvällisemmän analyysin siitä, miten hyvin malli toimii kussakin luokassa. Korkeat tarkkuus-, palautus- ja F1-arvot viittaavat hyvään ennustekykyyn. Jos jokin näistä arvoista on alhainen, se saattaa viitata mallin heikkouteen kyseisessä luokassa, ja se voi olla merkki mallin optimointitarpeesta.
+
+# Esimerkkitulos ja sen analyysi
+
+## raportti antoi seuraavat tulokset:
+
+Luokka Pieni auto -> Tarkkuus: 0.22, Palautus: 0.11, F1-pisteet: 0.15
+Luokka Datakoodarin auto -> Tarkkuus: 0.27, Palautus: 0.25, F1-pisteet: 0.26
+Luokka Ekonomin auto -> Tarkkuus: 0.31, Palautus: 0.51, F1-pisteet: 0.39
+
+Tässä raportissa on luokitteluindikaattorit kolmelle eri autoluokalle: "Pieni auto", "Datakoodarin auto" ja "Ekonomin auto". Analysoidaan tarkemmin, mitä tarkkuus, palautus ja F1-pisteet tarkoittavat tässä yhteydessä:
+
+### 1. **Tarkkuus (Precision)**
+Tarkkuus kuvaa sitä, kuinka monta mallin tekemää ennustetta tietystä luokasta oli oikeasti oikein kyseiseen luokkaan kuuluvia. Se antaa siis tiedon siitä, kuinka moni mallin ennustama "positiivinen" oli todella positiivinen.
+
+- **"Pieni auto" -> Tarkkuus: 0.22**: Mallin tekemistä "Pieni auto" -ennusteista vain 22 % oli oikein.
+- **"Datakoodarin auto" -> Tarkkuus: 0.27**: Mallin tekemistä "Datakoodarin auto" -ennusteista 27 % oli oikein.
+- **"Ekonomin auto" -> Tarkkuus: 0.31**: Mallin tekemistä "Ekonomin auto" -ennusteista 31 % oli oikein.
+
+Korkea tarkkuus tarkoittaa, että mallilla on vähän väärin positiivisia ennusteita, kun taas alhainen tarkkuus viittaa siihen, että malli tekee usein virheellisiä positiivisia ennusteita.
+
+### 2. **Palautus (Recall)**
+Palautus kuvaa sitä, kuinka moni tietyn luokan todellisista tapauksista malli löysi oikein. Se siis mittaa mallin kykyä löytää kaikki kyseisen luokan esimerkit.
+
+- **"Pieni auto" -> Palautus: 0.11**: Malli tunnisti vain 11 % kaikista "Pieni auto" -tapauksista oikein.
+- **"Datakoodarin auto" -> Palautus: 0.25**: Malli tunnisti 25 % kaikista "Datakoodarin auto" -tapauksista oikein.
+- **"Ekonomin auto" -> Palautus: 0.51**: Malli tunnisti 51 % kaikista "Ekonomin auto" -tapauksista oikein.
+
+Korkea palautus tarkoittaa, että malli löytää suurimman osan tietyn luokan tapauksista, kun taas alhainen palautus tarkoittaa, että malli jättää monia kyseisen luokan tapauksia huomiotta.
+
+### 3. **F1-pisteet (F1-score)**
+F1-pisteet ovat tarkkuuden ja palautuksen harmoninen keskiarvo. F1-pisteet ovat hyödyllisiä silloin, kun halutaan tasapaino tarkkuuden ja palautuksen välillä. Se auttaa arvioimaan mallia erityisesti, kun datassa on epätasapaino eri luokkien välillä.
+
+- **"Pieni auto" -> F1-pisteet: 0.15**: Pieni F1-arvo viittaa siihen, että mallin suorituskyky on heikko sekä tarkkuuden että palautuksen osalta tässä luokassa.
+- **"Datakoodarin auto" -> F1-pisteet: 0.26**: Kohtalainen F1-arvo viittaa siihen, että mallin suorituskyky on parantunut, mutta on silti riittämätön, jotta malli olisi luotettava tässä luokassa.
+- **"Ekonomin auto" -> F1-pisteet: 0.39**: Tämä on korkein F1-piste, mikä tarkoittaa, että malli onnistui tässä luokassa paremmin kuin muissa, mutta suorituskyky on silti keskinkertainen.
+
+### Yhteenveto
+- **Pieni auto**: Mallin kyky ennustaa "Pieni auto" -luokkaa on heikko. Sekä tarkkuus että palautus ovat alhaisia, mikä tarkoittaa, että malli tekee virheellisiä ennusteita ja jättää monia tapauksia huomiotta.
+- **Datakoodarin auto**: Tämä luokka on hieman parempi kuin "Pieni auto", mutta tarkkuus ja palautus ovat silti matalia, mikä johtaa matalaan F1-arvoon.
+- **Ekonomin auto**: Mallin suorituskyky on paras tässä luokassa, mutta F1-pisteet (0.39) osoittavat, että malli tarvitsee vielä parannuksia ennustustarkkuuden ja palautuksen suhteen.
+
+Näiden tulosten perusteella mallia voi parantaa esimerkiksi keräämällä lisää dataa, säätämällä mallin hyperparametreja tai kokeilemalla monimutkaisempia koneoppimismalleja, kuten päätöspuu- tai satunnaismetsäluokittimia.

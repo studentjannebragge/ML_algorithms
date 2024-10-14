@@ -84,6 +84,7 @@ def accuracy(y_true, y_pred):
 def classification_report(y_true, y_pred):
     # Luodaan luokitusraportti, joka sisältää tarkkuuden, palautuksen ja F1-pisteet
     classes = np.unique(y_true)
+    class_names = {0: "Pieni auto", 1: "Datakoodarin auto", 2: "Ekonomin auto"}
     report = ""
     for c in classes:
         tp = np.sum((y_true == c) & (y_pred == c))  # Oikein positiiviset
@@ -92,7 +93,7 @@ def classification_report(y_true, y_pred):
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0  # Tarkkuus
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0  # Palautus
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0  # F1-pisteet
-        report += f"Luokka {c} -> Tarkkuus: {precision:.2f}, Palautus: {recall:.2f}, F1-pisteet: {f1:.2f}\n"
+        report += f"Luokka {class_names[c]} -> Tarkkuus: {precision:.2f}, Palautus: {recall:.2f}, F1-pisteet: {f1:.2f}\n"
     return report
 
 accuracy_value = accuracy(y_test, y_pred)
