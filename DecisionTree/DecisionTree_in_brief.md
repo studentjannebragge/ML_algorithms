@@ -70,7 +70,7 @@ Gini-indeksi ja entropia ovat kaksi suosittua mittaria, joita käytetään pää
   - Laskennallisesti nopeampi kuin entropia, sillä se ei sisällä logaritmeja.
   - Yleisesti käytetään luokituksessa, kun vaaditaan nopeaa suoritusta.
 
-### Entropia ja Informaatiovoitto
+### Entropia ja Information Gain
 - **Määritelmä**: Entropia mittaa epävarmuutta tai epäjärjestystä solmussa. Jos kaikki näytteet kuuluvat samaan luokkaan, entropian arvo on 0, kun taas maksimiepävarmuuden vallitessa (näytteet jakautuvat tasaisesti eri luokkiin) entropian arvo on korkea.
 - **Laskentakaava**: Entropia lasketaan seuraavasti:
   \[
@@ -127,7 +127,7 @@ Leikkaaminen (pruning) on keskeinen menetelmä, jolla päätöspuun ylisovittami
 - **Kompleksisuuden Hallinta**: Pienempi, vähemmän monimutkainen päätöspuu on helpompi tulkita ja hallita. Se ei vain auta yleistämisessä, vaan on myös **tulkittavampi** ja helpommin selitettävissä.
 
 ### Esimerkki
-Oletetaan, että opetat oppilaallesi, kuinka päätöspuu ylisovittaa, jos sille annetaan liikaa vapautta. Voitte käyttää Pythonin **scikit-learn**-kirjastoa ja asettaa päätöspuulle syvyyden rajoituksia, ja sitten verrata eri mallien suorituskykyä testidatalla:
+Seuraavana esimerkki kuinka päätöspuu ylisovittaa, jos sille annetaan liikaa vapautta. Voitte käyttää Pythonin **scikit-learn**-kirjastoa ja asettaa päätöspuulle syvyyden rajoituksia, ja sitten verrata eri mallien suorituskykyä testidatalla:
 
 ```python
 from sklearn.datasets import load_iris
@@ -151,13 +151,6 @@ model_pruned.fit(X_train, y_train)
 y_pred_pruned = model_pruned.predict(X_test)
 print(f"Leikatun puun tarkkuus: {accuracy_score(y_test, y_pred_pruned):.2f}")
 ```
-from sklearn.model_selection import cross_val_score
-
-# Eri syvyyksien testaus
-for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaamista
-    model = DecisionTreeClassifier(max_depth=depth)
-    scores = cross_val_score(model, X_train, y_train, cv=5)
-    print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
 
 
 Tässä esimerkissä voidaan nähdä, kuinka rajoittamalla päätöspuun syvyyttä voimme parantaa mallin kykyä yleistää testidatan kanssa. Tämä on konkreettinen tapa osoittaa, kuinka leikkaaminen voi parantaa yleistettävyyttä ja estää ylisovittamisen.
@@ -192,13 +185,10 @@ for params in parametrien_yhdistelmat:
     y_pred = model.predict(X_test)
     print(f"Leikkausparametrit {params} - Tarkkuus: {accuracy_score(y_test, y_pred):.2f}")
 ```
-from sklearn.model_selection import cross_val_score
+Leikkausparametrit {'max_depth': 3} - Tarkkuus: 1.00
+Leikkausparametrit {'min_samples_split': 4} - Tarkkuus: 1.00
+Leikkausparametrit {'min_samples_leaf': 5} - Tarkkuus: 1.00
 
-# Eri syvyyksien testaus
-for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaamista
-    model = DecisionTreeClassifier(max_depth=depth)
-    scores = cross_val_score(model, X_train, y_train, cv=5)
-    print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
 
 
 Tämän harjoituksen avulla voi kokeilla, miten erilaiset parametrit, kuten **maksimisyvyys** (max_depth), **minimijaon näytemäärä** (min_samples_split), ja **lehtisolmun miniminäytteet** (min_samples_leaf), vaikuttavat puun yksinkertaisuuteen ja sen suorituskykyyn.
@@ -282,18 +272,10 @@ for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaami
 
 from sklearn.model_selection import cross_val_score
 
-# Eri syvyyksien testaus
-for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaamista
-    model = DecisionTreeClassifier(max_depth=depth)
-    scores = cross_val_score(model, X_train, y_train, cv=5)
-    print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
+Max_depth=3 - Cross Validation - Keskimääräinen tarkkuus: 0.93
+Max_depth=5 - Cross Validation - Keskimääräinen tarkkuus: 0.92
+Max_depth=None - Cross Validation - Keskimääräinen tarkkuus: 0.94
 
-
-# Eri syvyyksien testaus
-for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaamista
-    model = DecisionTreeClassifier(max_depth=depth)
-    scores = cross_val_score(model, X_train, y_train, cv=5)
-    print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
 
 
 K-Fold Cross Validation auttaa arvioimaan mallin luotettavuutta eri syvyyksillä ja auttaa valitsemaan optimaalisen syvyyden ilman liiallista ylisovittamista. Tämä on hyvä tapa näyttää, miten mallin hyperparametrit voidaan valita objektiivisesti.
