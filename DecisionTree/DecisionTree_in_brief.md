@@ -289,6 +289,13 @@ for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaami
     print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
 
 
+# Eri syvyyksien testaus
+for depth in [3, 5, None]:  # None tarkoittaa täyttä syvyyttä ilman leikkaamista
+    model = DecisionTreeClassifier(max_depth=depth)
+    scores = cross_val_score(model, X_train, y_train, cv=5)
+    print(f"Max_depth={depth} - Cross Validation - Keskimääräinen tarkkuus: {scores.mean():.2f}")
+
+
 K-Fold Cross Validation auttaa arvioimaan mallin luotettavuutta eri syvyyksillä ja auttaa valitsemaan optimaalisen syvyyden ilman liiallista ylisovittamista. Tämä on hyvä tapa näyttää, miten mallin hyperparametrit voidaan valita objektiivisesti.
 
 ### Yhteenveto
