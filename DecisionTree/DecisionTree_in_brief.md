@@ -58,13 +58,10 @@ Gini-indeksi ja entropia ovat kaksi suosittua mittaria, joita käytetään pää
 ### Gini-indeksi
 - **Määritelmä**: Gini-indeksi mittaa solmun epäpuhtautta. Sen arvo vaihtelee välillä 0–1, jossa 0 tarkoittaa täysin homogeenista ryhmää (kaikki kuuluvat samaan luokkaan) ja arvo lähellä 1 viittaa heterogeenisempään ryhmään.
 - **Laskentakaava**: Gini-indeksi lasketaan seuraavasti:
-
-<script>
   \[
   Gini = 1 - \sum_{i=1}^{n} p_i^2
   \]
   jossa \( p_i \) on i:nnen luokan todennäköisyys. Mitä pienempi Gini-arvo, sitä homogeenisempi ryhmä.
-  </script>
 
 - **Edut**:
   - Laskennallisesti nopeampi kuin entropia, sillä se ei sisällä logaritmeja.
