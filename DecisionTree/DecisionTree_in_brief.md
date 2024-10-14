@@ -44,6 +44,8 @@ tree.plot_tree(model, filled=True, feature_names=data.feature_names, class_names
 plt.show()
 ```
 
+![decisionTree](image.png)
+
 Tässä esimerkissä käytetään Iris-datasarjaa, jonka avulla voidaan helposti havainnollistaa, kuinka päätöspuu oppii ja tekee päätöksiä eri kukkalajien perusteella.
 
 ### Keskustelukysymyksiä
