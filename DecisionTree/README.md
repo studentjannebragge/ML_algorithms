@@ -83,7 +83,7 @@ Gini-indeksi ja entropia ovat kaksi suosittua mittaria, joita käytetään pää
 - **Laskennallinen ero**: Gini-indeksi on laskennallisesti yksinkertaisempi, koska se ei sisällä logaritmifunktioita, jotka voivat olla suhteellisen raskaita. Tästä syystä se on yleensä hieman nopeampi valinta, ja sen vuoksi suositumpi erityisesti suurten datasarjojen kanssa.
 - **Valintakriteeri**:
   - Gini-indeksi on intuitiivinen ja nopea, ja se pyrkii vähentämään heterogeenisyyttä mahdollisimman nopeasti. Usein käytetään **CART (Classification and Regression Tree)** -menetelmässä.
-  - Entropia antaa syvällisemmän käsityksen epävarmuudesta ja voi joskus tuottaa hieman erilaisen puun rakenteen kuin Gini. Entropiaa käytetään erityisesti **ID3** ja **C4.5**-algoritmeissa.
+  - Entropia antaa syvällisemmän käsityksen epävarmuudesta ja voi joskus tuottaa hieman erilaisen puun rakenteen kuin Gini.
 
 ### Käyttösuositukset
 - **Gini-indeksi**: Valitse Gini, kun haluat nopean ja laskennallisesti kevyemmän ratkaisun, eikä solmujen tarkka epävarmuuden arviointi ole kriittistä.
@@ -278,5 +278,4 @@ K-Fold Cross Validation auttaa arvioimaan mallin luotettavuutta eri syvyyksillä
 - Virheiden vertailu koulutus- ja testidatassa havainnollistaa ylisovittamisen vaikutuksia.
 - K-Fold Cross Validation opettaa, miten valita optimaalinen mallin syvyys objektiivisesti.
 
-Voit kokeilla näitä harjoituksia ja nähdä, mitkä auttavat parhaitenta ymmärtämään päätöspuiden toimintaa ja leikkaamisen merkitystä. Tarvitsetko lisätietoja jostakin näistä harjoituksista?
 
