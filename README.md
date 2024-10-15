@@ -4,3 +4,4 @@ Includes
 - Naive Bayes
 - Decision Tree
 - KNN
+- KMeans
