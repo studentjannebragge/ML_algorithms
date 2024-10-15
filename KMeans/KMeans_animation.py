@@ -203,7 +203,7 @@ class KMeans:
         ani = animation.FuncAnimation(fig, update, frames=len(self.history), interval=600, repeat=False) # type: ignore
         plt.show()
 
-# Testing
+# Testaus
 if __name__ == "__main__":
     np.random.seed(42)
     from sklearn.datasets import make_blobs
