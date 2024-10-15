@@ -73,8 +73,5 @@ print(ennusteet)
 2. Asenna tarvittavat paketit komennolla `pip install -r requirements.txt`.
 3. Aja `train.py`-skripti nähdäksesi KNN-luokittelijan toiminnassa.
 
-## Lisenssi
-Tämä projekti on lisensoitu MIT-lisenssillä. Katso `LICENSE`-tiedosto saadaksesi lisätietoja.
-
 ## Lähde
 How to implement KNN from scratch with Python, AssemblyAI (https://www.youtube.com/watch?v=rTEtEy5o3X0) 15.10.2024
