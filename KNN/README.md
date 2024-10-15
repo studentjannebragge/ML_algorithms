@@ -62,16 +62,5 @@ ennusteet = clf.predict(X_test)
 print(ennusteet)
 ```
 
-## Vaatimukset
-- Python 3.x
-- NumPy
-- Matplotlib (datan visualisointiin)
-- scikit-learn (datasarjojen käsittelyyn)
-
-## Kuinka ajaa
-1. Kloonaa repositorio.
-2. Asenna tarvittavat paketit komennolla `pip install -r requirements.txt`.
-3. Aja `train.py`-skripti nähdäksesi KNN-luokittelijan toiminnassa.
-
 ## Lähde
 How to implement KNN from scratch with Python, AssemblyAI (https://www.youtube.com/watch?v=rTEtEy5o3X0) 15.10.2024
