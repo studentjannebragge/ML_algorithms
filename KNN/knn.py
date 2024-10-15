@@ -1,55 +1,31 @@
-# %%
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load in 
+import numpy as np
+from collections import Counter
 
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib.pyplot as plt # for data visualization purposes
-import seaborn as sns # for data visualization
-import matplotlib.pyplot as plt
-plt.ion() # Interactive mode on
+def euclidean_distance(x1, x2):
+    distance = np.sqrt(np.sum((x1 - x2) ** 2))
+    return distance
 
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+class KNN:
+    def __init__(self, k=3):
+        self.k = k = k
 
-import os
-for dirname, _, filenames in os.walk('/kaggle/input'):
-    for filename in filenames:
-        print(os.path.join(dirname, filename))
+    def fit(self, X, y):
+        self.X_train = X
+        self.y_train = y
 
-# Any results you write to the current directory are saved as output.
-# %%
-import warnings
+    def predict(self, X):
+        predictions = [self._predict(x) for x in X]
+        return np.array(predictions)
 
-warnings.filterwarnings('ignore')
-# %%
-data = 'breast-cancer-wisconsin.data'
+    def _predict(self, x):
+        # Compute distances
+        distances = [euclidean_distance(x, x_train) for x_train in self.X_train]
 
-df = pd.read_csv(data, header=None)
-# %%
-df.shape
-# %%
-df.head()
-# %%
-col_names = ['Id', 'Clump_thickness', 'Uniformity_Cell_Size', 'Uniformity_Cell_Shape', 'Marginal_Adhesion', 
-             'Single_Epithelial_Cell_Size', 'Bare_Nuclei', 'Bland_Chromatin', 'Normal_Nucleoli', 'Mitoses', 'Class']
+        # Get k the closest k
+        k_indices = np.argsort(distances)[:self.k]
+        k_nearest_labels = [self.y_train[i] for i in k_indices]
 
-df.columns = col_names
-
-df.columns
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
-
+        # majority voye
+        most_common = Counter(k_nearest_labels).most_common()
+        return most_common[0][0]
+        
