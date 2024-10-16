@@ -5,3 +5,5 @@ Includes
 - Decision Tree
 - KNN
 - KMeans
+- Linear Regression
+- Logistic Regression
