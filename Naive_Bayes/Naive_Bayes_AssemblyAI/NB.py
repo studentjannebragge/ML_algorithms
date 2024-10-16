@@ -58,6 +58,8 @@ class NaiveBayes:
         # Palautetaan pdf:n arvo
         return numerator / denominator
 
+
+"""
 # Testaus
 if __name__ == "__main__":
     # Tuodaan tarvittavat kirjastot
@@ -86,3 +88,5 @@ if __name__ == "__main__":
 
     # Tulostetaan luokittelun tarkkuus
     print("Naive Bayes classification accuracy", accuracy(y_test, predictions))
+
+"""
