@@ -32,6 +32,7 @@ Käyttääksesi NaiveBayes-luokitinta, voit seurata alla olevaa esimerkkiä:
 from sklearn.model_selection import train_test_split
 from sklearn import datasets
 import numpy as np
+from NB import NaiveBayes
 
 # Luodaan esimerkkiaineisto
 X, y = datasets.make_classification(n_samples=1000, n_features=10, n_classes=2, random_state=123)

@@ -7,3 +7,5 @@ Includes
 - KMeans
 - Linear Regression
 - Logistic Regression
+
+Repository is in finnish
