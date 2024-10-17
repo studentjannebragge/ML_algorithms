@@ -52,4 +52,5 @@ python train.py
 
 Tämä luo kuvaajan, joka näyttää koulutus- ja testidatan sekä animoidun regressioviivan, joka esittää mallin oppimisprosessia.
 
-
+## Lähde:
+https://www.youtube.com/watch?v=ltXSoduiVwY

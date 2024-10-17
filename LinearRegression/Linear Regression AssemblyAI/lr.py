@@ -1,5 +1,6 @@
 import numpy as np
 
+#Source: https://www.youtube.com/watch?v=ltXSoduiVwY
 
 class LinearRegression:
 

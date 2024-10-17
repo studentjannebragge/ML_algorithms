@@ -53,3 +53,6 @@ Tämän Notebookin tavoitteena on:
 
 - Tämä Notebook on tarkoitettu opetustarkoituksiin, ja sitä voidaan laajentaa lisäominaisuuksilla, kuten monimuuttujaregressiolla tai regularisointimenetelmillä.
 - Voit kokeilla eri hyperparametrien arvoja ja erilaisia tiedon esikäsittelytekniikoita parantaaksesi mallin suorituskykyä.
+
+## Lähde
+https://www.youtube.com/watch?v=O2Cw82YR5Bo
