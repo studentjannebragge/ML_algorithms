@@ -52,6 +52,5 @@ pip install numpy pandas scikit-learn matplotlib seaborn
 
 Logistinen regressiomalli saavuttaa korkean tarkkuuden rintasyövän kasvainten ennustamisessa, perustaen annettuihin mittaustietoihin.
 
-## Lisenssi
-
-Tämä projekti on lisensoitu MIT-lisenssillä.
+## Lähde
+https://www.youtube.com/watch?v=My4JgIeFdWk&t=23s

@@ -65,3 +65,6 @@ pip install numpy scikit-learn matplotlib
    - Tulostaa mallin ennustustarkkuuden testidatalle.
 
 5.  Ohjelman tulostama tarkkuus on luku, joka edustaa prosenttiosuutta oikein luokitelluista testidatan näytteistä verrattuna todellisiin luokkiin. Tarkkuus on arvo välillä 0 ja 1, missä 1 tarkoittaa 100 % tarkkuutta.
+
+## Lähde
+https://www.youtube.com/watch?v=YYEJ_GUguHw&t=1s
