@@ -8,4 +8,4 @@ Includes
 - Linear Regression
 - Logistic Regression
 
-Repository is in finnish
+Repository is in finnish.
